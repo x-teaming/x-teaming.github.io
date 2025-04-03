@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="X-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents">
+  <meta name="keywords" content="X-Teaming, Language Models, Safety, Multi-turn Jailbreaks">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>X-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/storm.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="x-title" style="color: rgb(250, 166, 0);">𝕏</span>-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://salmanrahman.net/" target="_blank" rel="noopener noreferrer">Salman Rahman</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://liweijiang.me/" target="_blank" rel="noopener noreferrer">Liwei Jiang</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.jshiffer.xyz/" target="_blank" rel="noopener noreferrer">James Shiffer</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://genglinliu.github.io/" target="_blank" rel="noopener noreferrer">Genglin Liu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/sheriff-issaka" target="_blank" rel="noopener noreferrer">Sheriff Issaka</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://rizwan09.github.io/" target="_blank" rel="noopener noreferrer">Md Rizwan Parvez</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.hamidpalangi.com/" target="_blank" rel="noopener noreferrer">Hamid Palangi</a><sup>4</sup>,</span>
+            <span class="author-block">
+              <a href="https://web.cs.ucla.edu/~kwchang/" target="_blank" rel="noopener noreferrer">Kai-Wei Chang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://yejinc.github.io/" target="_blank" rel="noopener noreferrer">Yejin Choi</a><sup>5</sup>,</span>
+            <span class="author-block">
+              <a href="https://saadiagabriel.com/" target="_blank" rel="noopener noreferrer">Saadia Gabriel</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of California, Los Angeles,</span>
+            <span class="author-block"><sup>2</sup>University of Washington,</span>
+            <span class="author-block"><sup>3</sup>Qatar Computing Research Institute,</span>
+            <span class="author-block"><sup>4</sup>Google,</span>
+            <span class="author-block"><sup>5</sup>Stanford University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/XXXX.XXXXX" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/salman-lui/x-teaming" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/your-dataset" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Multi-turn interactions with language models (LMs) pose critical safety risks, as harmful intent can be strategically spread across exchanges. Yet, the vast majority of prior work has focused on single-turn safety, while adaptability and diversity remain among the key challenges of multi-turn red-teaming. To address these challenges, we present <span class="x-team">X-Teaming</span>, a scalable framework that systematically explores how seemingly harmless interactions escalate into harmful outcomes and generates corresponding attack scenarios.
+          </p>
+          <p>
+            X-Teaming employs collaborative agents for planning, attack optimization, and verification, achieving state-of-the-art multi-turn jailbreak effectiveness and diversity with success rates up to 99.4% across representative leading open-weight and closed-source models. In particular, X-Teaming achieves a 96.2% attack success rate against the latest Claude 3.7 Sonnet model, which has been considered nearly immune to single-turn attacks.
+          </p>
+          <p>
+            Building on X-Teaming, we introduce <span class="x-guard">XGuard-Train</span>, an open-source multi-turn safety training dataset that's ~10× larger than the previous best resource, comprising 14K interactive jailbreaks, designed to enable robust multi-turn safety alignment for LMs. Our work offers essential tools and insights for mitigating sophisticated conversational attacks, advancing the multi-turn safety of LMs.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Framework Figure. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <img src="./static/images/framework.png" alt="X-Teaming Framework"
+             class="framework-image"/>
+      </div>
+    </div>
+    <!--/ Framework Figure. -->
+  </div>
+</section>
+
+<!-- Results Table Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+        <div class="content has-text-centered">
+          <p class="table-caption">Attack success rate (ASR; %) on HarmBench test set.</p>
+          <div class="table-container">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th colspan="3" class="text-center main-header">Closed-Source</th>
+                  <th colspan="4" class="text-center main-header">Open-Weight</th>
+                </tr>
+                <tr>
+                  <th>Method</th>
+                  <th class="small-header">GPT-4o</th>
+                  <th class="small-header">Claude 3.5 Sonnet</th>
+                  <th class="small-header">Gemini 2.0-Flash</th>
+                  <th class="small-header">Llama 3-8B-IT</th>
+                  <th class="small-header">Llama 3-70B-IT</th>
+                  <th class="small-header">Llama-3-8B-IT (SafeMTData)</th>
+                  <th class="small-header">Deepseek V3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="category-row">
+                  <td colspan="8"><em>Single-turn Methods</em></td>
+                </tr>
+                <tr>
+                  <td>GCG</td>
+                  <td>12.5</td>
+                  <td>3.0</td>
+                  <td>--</td>
+                  <td>34.5</td>
+                  <td>17.0</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>PAIR</td>
+                  <td>39.0</td>
+                  <td>3.0</td>
+                  <td>--</td>
+                  <td>18.7</td>
+                  <td>36.0</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>CodeAttack</td>
+                  <td>70.5</td>
+                  <td>39.5</td>
+                  <td>--</td>
+                  <td>46.0</td>
+                  <td>66.0</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr class="category-row">
+                  <td colspan="8"><em>Multi-turn Methods</em></td>
+                </tr>
+                <tr>
+                  <td>RACE</td>
+                  <td>82.8</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>CoA</td>
+                  <td>17.5</td>
+                  <td>3.4</td>
+                  <td>--</td>
+                  <td>25.5</td>
+                  <td>18.8</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>Crescendo</td>
+                  <td>46.0</td>
+                  <td>50.0</td>
+                  <td>--</td>
+                  <td>60.0</td>
+                  <td>62.0</td>
+                  <td>12.0</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>ActorAttack</td>
+                  <td>84.5</td>
+                  <td>66.5</td>
+                  <td>--</td>
+                  <td>79.0</td>
+                  <td>85.5</td>
+                  <td>21.4</td>
+                  <td>--</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>X-Teaming (Ours)</strong></td>
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>94.3</strong></td>
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>67.9*</strong></td>
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>87.4</strong></td>
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>94.3</strong></td>
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>99.4</strong></td>
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>91.8</strong></td>
+                  <td style="border-bottom: 2px solid #dee2e6;"><strong>98.1</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">
+            * Both results: 67.9% (Claude 3.5 Sonnet) and 96.2% (Claude 3.7 Sonnet) use full configuration (50 plans, 5 TextGrad tries, 10 turns). IT = Instruct.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{rahman2024xteaming,
+  author    = {Rahman, Salman and Jiang, Liwei and Shiffer, James and Liu, Genglin and Issaka, Sheriff and Parvez, Md Rizwan and Palangi, Hamid and Chang, Kai-Wei and Choi, Yejin and Gabriel, Saadia},
+  title     = {X-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents},
+  journal   = {arXiv preprint},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+<!-- Organization Logos Section -->
+<section class="section" id="org-logos">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <div class="org-logos" style="margin: 2rem 0;">
+          <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer">
+            <img src="static/images/logo/ucla-logo.png" alt="UCLA Logo" class="org-logo" style="height: 60px;">
+          </a>
+          <a href="https://www.washington.edu/" target="_blank" rel="noopener noreferrer">
+            <img src="static/images/logo/uw-logo.png" alt="UW Logo" class="org-logo" style="height: 60px;">
+          </a>
+          <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener noreferrer">
+            <img src="static/images/logo/QCRI-logo.jpg" alt="QCRI Logo" class="org-logo" style="height: 60px;">
+          </a>
+          <a href="https://research.google/" target="_blank" rel="noopener noreferrer">
+            <img src="static/images/logo/google_research-logo.png" alt="Google Research Logo" class="org-logo" style="height: 110px;">
+          </a>
+          <a href="https://www.stanford.edu/" target="_blank" rel="noopener noreferrer">
+            <img src="static/images/logo/stanford-logo.png" alt="Stanford Logo" class="org-logo" style="height: 55px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website is adapted from <a href="https://nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a>, licensed under a 
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+    padding: 3rem 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer a {
+    color: #485fc7;
+    text-decoration: underline;
+}
+
+.org-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.org-logo {
+  height: 70px;
+  object-fit: contain;
+  margin: 0 2.5rem;
+  transition: transform 0.2s ease;
+}
+
+.org-logo:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .org-logo {
+    height: 50px;
+    margin: 1rem;
+  }
+}
+</style>
+
+</body>
+</html>

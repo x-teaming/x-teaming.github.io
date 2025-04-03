@@ -1,0 +1,142 @@
+<!-- Create this file with your table HTML content -->
+<h2 class="title is-4">Attack Success Rate (ASR; %) on HarmBench Test Set</h2>
+
+<div style="overflow-x: auto;">
+<table style="width: 100%; border-collapse: collapse; font-family: 'Arial', sans-serif; margin: 25px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <thead>
+    <tr style="background: linear-gradient(135deg, #2c3e50, #34495e); color: white;">
+      <th style="padding: 12px 15px; text-align: left; border-bottom: 2px solid #3498db; font-weight: 600;">Method</th>
+      <th colspan="3" style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; font-weight: 600; border-left: 1px solid rgba(255,255,255,0.2);">
+        <span style="font-size: 0.9em; display: block; margin-bottom: 8px;">Closed-Source</span>
+        <div style="display: flex; justify-content: space-around;">
+          <span style="font-size: 0.8em; font-weight: 500; color: white;">GPT-4o</span>
+          <span style="font-size: 0.8em; font-weight: 500; color: white;">Claude 3.5 Sonnet</span>
+          <span style="font-size: 0.8em; font-weight: 500; color: white;">Gemini 2.0-Flash</span>
+        </div>
+      </th>
+      <th colspan="4" style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; font-weight: 600; border-left: 1px solid rgba(255,255,255,0.2);">
+        <span style="font-size: 0.9em; display: block; margin-bottom: 8px;">Open-Weight</span>
+        <div style="display: flex; justify-content: space-around;">
+          <span style="font-size: 0.8em; font-weight: 500; color: white;">Llama 3-8B-IT</span>
+          <span style="font-size: 0.8em; font-weight: 500; color: white;">Llama 3-70B-IT</span>
+          <span style="font-size: 0.8em; font-weight: 500; color: white;">Llama-3-8B-IT (SafeMTData)</span>
+          <span style="font-size: 0.8em; font-weight: 500; color: white;">Deepseek V3</span>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Single-turn Methods Header -->
+    <tr style="background-color: #f2f6f9;">
+      <td colspan="8" style="padding: 10px 15px; font-style: italic; color: #2c3e50; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd;"><strong>Single-turn Methods</strong></td>
+    </tr>
+    
+    <!-- GCG -->
+    <tr style="background-color: white; transition: all 0.3s;">
+      <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 500;">GCG</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">12.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">3.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">34.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">17.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+    </tr>
+    
+    <!-- PAIR -->
+    <tr style="background-color: #f9f9f9; transition: all 0.3s;">
+      <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 500;">PAIR</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">39.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">3.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">18.7</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">36.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+    </tr>
+    
+    <!-- CodeAttack -->
+    <tr style="background-color: white; transition: all 0.3s;">
+      <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 500;">CodeAttack</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">70.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">39.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">46.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">66.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+    </tr>
+    
+    <!-- Multi-turn Methods Header -->
+    <tr style="background-color: #f2f6f9;">
+      <td colspan="8" style="padding: 10px 15px; font-style: italic; color: #2c3e50; border-bottom: 1px solid #ddd;"><strong>Multi-turn Methods</strong></td>
+    </tr>
+    
+    <!-- RACE -->
+    <tr style="background-color: white; transition: all 0.3s;">
+      <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 500;">RACE</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">82.8</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+    </tr>
+    
+    <!-- CoA -->
+    <tr style="background-color: #f9f9f9; transition: all 0.3s;">
+      <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 500;">CoA</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">17.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">3.4</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">25.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">18.8</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+    </tr>
+    
+    <!-- Crescendo -->
+    <tr style="background-color: white; transition: all 0.3s;">
+      <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 500;">Crescendo</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">46.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">50.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">60.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">62.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">12.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+    </tr>
+    
+    <!-- ActorAttack -->
+    <tr style="background-color: #f9f9f9; transition: all 0.3s;">
+      <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 500;">ActorAttack</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">84.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">66.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">79.0</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">85.5</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">21.4</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd; border-left: 1px solid #eee;">—</td>
+    </tr>
+    
+    <!-- X-Teaming (Ours) -->
+    <tr style="background-color: #e8f4fc; transition: all 0.3s; font-weight: bold;">
+      <td style="padding: 12px 15px; border-bottom: 2px solid #3498db; color: #2980b9;">
+        <span style="font-weight: 700;">X-Teaming (Ours)</span>
+      </td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; border-left: 1px solid #eee; color: #2980b9;">94.3</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; border-left: 1px solid #eee; color: #2980b9;">67.9*</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; border-left: 1px solid #eee; color: #2980b9;">87.4</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; border-left: 1px solid #eee; color: #2980b9;">94.3</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; border-left: 1px solid #eee; color: #2980b9;">99.4</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; border-left: 1px solid #eee; color: #2980b9;">91.8</td>
+      <td style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #3498db; border-left: 1px solid #eee; color: #2980b9;">98.1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p style="font-size: 0.9em; color: #555; margin-top: 0; padding-left: 15px;">
+<em>* Both results: 67.9% (Claude 3.5 Sonnet) and 96.2% (Claude 3.7 Sonnet) use full configuration (50 plans, 5 TextGrad tries, 10 turns). IT = Instruct.</em>
+</p> 
