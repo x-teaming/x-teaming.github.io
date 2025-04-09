@@ -318,3 +318,7 @@ body {
   background-color: #f5f5f5;
   margin-right: auto;
 }
+
+.table-cell-right-border {
+  border-width: 0 2px 2px 0 !important;
+}
