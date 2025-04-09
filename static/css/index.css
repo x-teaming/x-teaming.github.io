@@ -250,3 +250,71 @@ body {
     margin: 0.5rem;
   }
 }
+
+#typed-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.model-list {
+  border-right: 2px solid #eee;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.model-item {
+  padding: 1.5rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.model-item.is-active {
+  transform: scale(1.02);
+  background-color: hsl(48, 100%, 90%);
+}
+
+.model-item:hover:not(.is-active) {
+  background-color: hsl(48, 100%, 96%);
+}
+
+.conversation-panel {
+  padding: 0 2rem;
+  height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation-cols, .conversation-cols .column {
+  height: 800px;
+}
+
+.message-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.message {
+  max-width: 80%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.user-message {
+  background-color: #e6f7ff;
+  margin-left: auto;
+}
+
+.ai-message {
+  background-color: #f5f5f5;
+  margin-right: auto;
+}

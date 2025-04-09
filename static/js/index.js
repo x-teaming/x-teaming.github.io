@@ -1,92 +1,105 @@
-window.HELP_IMPROVE_VIDEOJS = false;
-
-var INTERP_BASE = "./static/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
-
-var interp_images = [];
-function preloadInterpolationImages() {
-  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
-    interp_images[i] = new Image();
-    interp_images[i].src = path;
+function toggleExample(id) {
+  var table = document.getElementById('example-' + id);
+  var btn = document.getElementById('btn-' + id);
+  var btnIcon = btn.querySelector('span') && btn.querySelector('span').children[0];
+  if (table.style.display === 'none') {
+    table.style.display = '';
+    if (btnIcon) {
+      btnIcon.classList.remove('fa-chevron-right');
+      btnIcon.classList.add('fa-chevron-down');
+    }
+  } else {
+    table.style.display = 'none';
+    if (btnIcon) {
+      btnIcon.classList.remove('fa-chevron-down');
+      btnIcon.classList.add('fa-chevron-right');
+    }
   }
 }
 
-function setInterpolationImage(i) {
-  var image = interp_images[i];
-  image.ondragstart = function() { return false; };
-  image.oncontextmenu = function() { return false; };
-  $('#interpolation-image-wrapper').empty().append(image);
+const conversations = {};
+var mode = 'no-jailbreak';
+
+async function preloadConversation(model) {
+  if (model in conversations) {
+    return;
+  }
+  const res = await fetch(`/static/js/${model}.json`);
+  const json = await res.json();
+  conversations[model] = json;
 }
 
+function createModelItem(model) {
+  const item = document.createElement('div');
+  item.className = `model-item`;
+  item.innerHTML = `
+      <div class="has-text-centered has-text-dark">${model.name}</div>
+  `;
+  item.addEventListener('click', e => selectModel(e.currentTarget, model.name));
+  return item;
+}
 
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
+async function selectModel(el, modelName) {
+  await preloadConversation(modelName);
+  document.querySelectorAll('.model-item').forEach(item => item.classList.remove('is-active'));
+  el.classList.add('is-active');
+  updateConversation(modelName);
+}
 
+function updateConversation(modelName) {
+  const container = document.getElementById('conversation-container');
+  container.innerHTML = "";
+  var attemptNum = 1;
+  var convo = conversations[modelName][mode];
+  for (var i = 0; i < convo.length; i++) {
+    var msg = convo[i];
+    var nextPhase = Infinity;
+    if (i < convo.length - 1) {
+      nextPhase = convo[i+1].phase;
+    }
+    if (msg.phase < nextPhase) {
+      var html = `<div class="message user-message">`;
+      if (attemptNum > 1) {
+        html += `<strong>(TextGrad Revision #${attemptNum})</strong><br>`;
+      }
+      html += `${msg.attacker}</div>`;
+      html += `<div class="message ai-message">${marked.parse(msg.target)}</div>`;
+      container.innerHTML += html;
+      attemptNum = 1;
+    } else {
+      attemptNum++;
+    }
+  }
+}
+
+// Initialize models
+const models = [
+  { name: "GPT-4o", icon: "fab fa-accessible-icon" },
+  { name: "Claude 3.7 Sonnet", icon: "fas fa-cloud-moon" },
+  { name: "Gemini 2.0 Flash", icon: "fas fa-gem" },
+  { name: "Llama-3-70B-IT", icon: "fas fa-horse-head" },
+  { name: "Llama-3-8B-IT (SafeMTData)", icon: "fas fa-shield-alt" },
+  { name: "Deepseek V3", icon: "fas fa-search-plus" }
+];
+
+document.addEventListener('DOMContentLoaded', function () {
+  const modelList = document.getElementById('model-list');
+  models.forEach(model => modelList.appendChild(createModelItem(model)));
+
+  // Tab handling
+  document.querySelectorAll('.tabs li').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tabs li').forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        mode = tab.dataset.mode;
+        const activeModel = document.querySelector('.model-item.is-active');
+        if (activeModel) {
+            const modelName = activeModel.children[0].textContent;
+            updateConversation(modelName, mode);
+        }
     });
+  });
 
-    var options = {
-			slidesToScroll: 1,
-			slidesToShow: 3,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
-    }
-
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
-    }
-
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
-    }
-
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
-    preloadInterpolationImages();
-
-    $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
-
-    bulmaSlider.attach();
-
-})
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Load results table
-    fetch('./static/html/results_table.html')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('results-table').innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error loading results table:', error);
-            document.getElementById('results-table').innerHTML = 
-                '<p class="has-text-danger">Error loading results table. Please try refreshing the page.</p>';
-        });
+  var firstModel = modelList.children[0];
+  selectModel(firstModel, firstModel.children[0].textContent);
 });
