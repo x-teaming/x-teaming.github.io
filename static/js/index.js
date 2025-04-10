@@ -70,6 +70,76 @@ function updateConversation(modelName) {
       attemptNum++;
     }
   }
+
+  const messages = document.querySelectorAll('.message');
+
+  messages.forEach(message => {
+    // Get the content directly if it's not wrapped in a <p>
+    const content = message.innerHTML.trim();
+    const tempElement = document.createElement('div');
+    tempElement.innerHTML = content;
+    tempElement.style.position = 'absolute';
+    tempElement.style.visibility = 'hidden';
+    tempElement.style.whiteSpace = 'pre-wrap'; // Preserve line breaks
+    document.body.appendChild(tempElement);
+
+    // Calculate the number of lines
+    const lineHeight = parseFloat(window.getComputedStyle(message).lineHeight);
+    const numberOfLines = parseInt(tempElement.clientHeight / lineHeight);
+
+    // Clean up the temporary element
+    document.body.removeChild(tempElement);
+
+    if (numberOfLines > 15) {
+      message.classList.add('expandable', 'collapsed');
+
+      const fade = document.createElement('div');
+      fade.className = 'fade';
+      message.appendChild(fade);
+
+      const toggleContainer = document.createElement('div');
+      toggleContainer.classList.add('toggle-container');
+      if (message.classList.contains('ai-message')) {
+        toggleContainer.classList.add('mr-auto');
+      } else {
+        toggleContainer.classList.add('ml-auto');
+      }
+
+      const toggle = document.createElement('button');
+      toggle.classList.add('toggle', 'has-text-link', 'button');
+      toggle.textContent = 'Show more';
+      toggle.addEventListener('click', () => {
+        const expanded = message.classList.contains('expanded');
+
+        if (!expanded) {
+          // Expand the message
+          message.style.maxHeight = `${message.scrollHeight}px`; // Set to exact content height
+          message.classList.add('expanded');
+          toggle.textContent = 'Show less';
+
+          // Add transition handling for expanding
+          message.addEventListener(
+            'transitionend',
+            () => {
+              message.style.maxHeight = 'none'; // Allow natural height after expansion
+            },
+            { once: true }
+          );
+        } else {
+          // Retract the message
+          message.style.maxHeight = `${message.scrollHeight}px`; // Reset to current height
+          requestAnimationFrame(() => {
+            message.style.maxHeight = '22.5em'; // Retract to collapsed height
+          });
+          message.classList.remove('expanded');
+          toggle.textContent = 'Show more';
+        }
+      });
+
+      toggleContainer.appendChild(toggle);
+      message.parentNode.insertBefore(toggleContainer, message.nextSibling); // Insert after the message
+    }
+  });
 }
 
 // Initialize models
