@@ -2,28 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="𝕏-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents">
+  <meta name="description" content="𝕏-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents">
   <meta name="keywords" content="𝕏-Teaming, Language Models, Safety, Multi-turn Jailbreaks">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>𝕏-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Noto+Sans+Math|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -57,7 +41,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <span class="x-title" style="color: rgb(250, 166, 0);">𝕏</span>-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents
+            <span class="x-title">𝕏</span>-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents
           </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -123,7 +107,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://huggingface.co/datasets/your-dataset" target="_blank" rel="noopener noreferrer"
+                <a href="https://huggingface.co/datasets/marslabucla/XGuard-Train" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-database"></i>
@@ -141,25 +125,22 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Multi-turn interactions with language models (LMs) pose critical safety risks, as harmful intent can be strategically spread across exchanges. Yet, the vast majority of prior work has focused on single-turn safety, while adaptability and diversity remain among the key challenges of multi-turn red-teaming. To address these challenges, we present <span class="x-team">𝕏-Teaming</span>, a scalable framework that systematically explores how seemingly harmless interactions escalate into harmful outcomes and generates corresponding attack scenarios.
-          </p>
-          <p>
-            X-Teaming employs collaborative agents for planning, attack optimization, and verification, achieving state-of-the-art multi-turn jailbreak effectiveness and diversity with success rates up to 99.4% across representative leading open-weight and closed-source models. In particular, 𝕏-Teaming achieves a 96.2% attack success rate against the latest Claude 3.7 Sonnet model, which has been considered nearly immune to single-turn attacks.
-          </p>
-          <p>
-            Building on 𝕏-Teaming, we introduce <span class="x-guard">𝕏Guard-Train</span>, an open-source multi-turn safety training dataset that's ~10× larger than the previous best resource, comprising 14K interactive jailbreaks, designed to enable robust multi-turn safety alignment for LMs. Our work offers essential tools and insights for mitigating sophisticated conversational attacks, advancing the multi-turn safety of LMs.
-          </p>
-        </div>
-      </div>
+    <div class="content has-text-justified">
+      <p>
+        Multi-turn interactions with language models (LMs) pose critical safety risks, as harmful intent can be strategically spread across exchanges. Yet, the vast majority of prior work has focused on single-turn safety, while adaptability and diversity remain among the key challenges of multi-turn red-teaming. To address these challenges, we present <span class="has-text-weight-bold"><span class="x-struck">𝕏</span>-Teaming</span>, a scalable framework that systematically explores how seemingly harmless interactions escalate into harmful outcomes and generates corresponding attack scenarios.
+      </p>
+      <p>
+        <span class="x-struck">𝕏</span>-Teaming employs collaborative agents for planning, attack optimization, and verification, achieving state-of-the-art multi-turn jailbreak effectiveness and diversity with success rates up to 98.1% across representative leading open-weight and closed-source models. In particular, <span class="x-struck">𝕏</span>-Teaming achieves a 96.2% attack success rate against the latest Claude 3.7 Sonnet model, which has been considered nearly immune to single-turn attacks.
+      </p>
+      <p>
+        Building on <span class="x-struck">𝕏</span>-Teaming, we introduce <span class="x-guard has-text-weight-bold"><span class="x-struck">𝕏</span>Guard-Train</span>, an open-source multi-turn safety training dataset that's ~20× larger than the previous best resource, comprising 30K interactive jailbreaks, designed to enable robust multi-turn safety alignment for LMs. Our work offers essential tools and insights for mitigating sophisticated conversational attacks, advancing the multi-turn safety of LMs.
+      </p>
     </div>
-    <!--/ Abstract. -->
+  </div>
+</section>
 
+<section class="section">
+  <div class="container is-max-desktop">
     <!-- Framework Figure. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
@@ -268,26 +249,26 @@
                 <td>ActorAttack</td>
                 <td>84.5</td>
                 <td>66.5</td>
-                <td>--</td>
+                <td>42.1</td>
                 <td>79.0</td>
-                <td>85.5</td>
+                <td><strong>85.5</strong></td>
                 <td>21.4</td>
-                <td>--</td>
+                <td>68.6</td>
               </tr>
               <tr class="highlight-row">
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>𝕏-Teaming (Ours)</strong></td>
+                <td style="border-bottom: 2px solid #dee2e6;"><strong><span class="x-struck">𝕏</span>-Teaming (Ours)</strong></td>
                 <td style="border-bottom: 2px solid #dee2e6;"><strong>94.3</strong></td>
                 <td style="border-bottom: 2px solid #dee2e6;"><strong>67.9*</strong></td>
                 <td style="border-bottom: 2px solid #dee2e6;"><strong>87.4</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>94.3</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>99.4</strong></td>
+                <td style="border-bottom: 2px solid #dee2e6;"><strong>85.5</strong></td>
+                <td style="border-bottom: 2px solid #dee2e6;">84.9</td>
                 <td style="border-bottom: 2px solid #dee2e6;"><strong>91.8</strong></td>
                 <td style="border-bottom: 2px solid #dee2e6;"><strong>98.1</strong></td>
               </tr>
             </tbody>
           </table>
           <p class="table-note">
-            * Both results: 67.9% (Claude 3.5 Sonnet) and 96.2% (Claude 3.7 Sonnet) use full configuration (50 plans, 5 TextGrad tries, 10 turns). IT = Instruct.
+            * With full configuration (50 plans, 5 TextGrad tries, 10 turns), Claude 3.5 Sonnet achieves 67.9% and Claude 3.7 Sonnet achieves 96.2% ASR. All other models, i.e. GPT-4o, Llama 3-IT variants, Gemini 2.0-Flash, and Deepseek V3 achieve 100% ASR on the HarmBench validation set. IT = Instruct.
           </p>
         </div>
       </div>
@@ -319,7 +300,7 @@
             <div class="tabs is-centered is-flex-shrink-0">
                 <ul>
                     <li class="is-active" data-mode="no-jailbreak"><a>Single Turn</a></li>
-                    <li data-mode="x-teaming"><a>𝕏-Teaming</a></li>
+                    <li data-mode="x-teaming"><a><span class="x-struck">𝕏</span>-Teaming</a></li>
                 </ul>
             </div>
             

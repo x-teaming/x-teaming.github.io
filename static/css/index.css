@@ -220,9 +220,13 @@ body {
 
 .x-title {
     color: rgb(250, 166, 0); /* This is the dark yellow color from your LaTeX definition */
-    font-family: 'Times New Roman', serif;
+    font-family: 'Noto Sans Math', sans-serif;
     font-weight: bold;
     font-size: 1.1em;
+}
+
+.x-struck {
+  font-family: 'Noto Sans Math', sans-serif;
 }
 
 .org-logos {
