@@ -184,6 +184,10 @@ body {
     border-bottom: 1px solid #dee2e6;
 }
 
+.main-header.header-dark {
+    background-color: #f3f3f3;
+}
+
 .category-row {
     background-color: #f8f9fa;
     text-align: left !important;
@@ -423,4 +427,9 @@ button.toggle {
 
 .mr-auto {
   margin-right: auto;
+}
+
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }

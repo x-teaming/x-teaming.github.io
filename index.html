@@ -129,10 +129,12 @@
   <div class="container is-max-desktop">
     <div class="content has-text-justified">
       <p>
-        Multi-turn interactions with language models (LMs) pose critical safety risks, as harmful intent can be strategically spread across exchanges. Yet, the vast majority of prior work has focused on single-turn safety, while adaptability and diversity remain among the key challenges of multi-turn red-teaming. To address these challenges, we present <span class="has-text-weight-bold"><span class="x-struck">𝕏</span>-Teaming</span>, a scalable framework that systematically explores how seemingly harmless interactions escalate into harmful outcomes and generates corresponding attack scenarios.
+        Multi-turn interactions with language models (LMs) pose critical safety risks, as harmful intent can be strategically spread across exchanges.
+        Yet, the vast majority of prior work has focused on single-turn safety, while adaptability and diversity remain among the key challenges of multi-turn red-teaming.
+        To address these challenges, we present <span class="has-text-weight-bold"><span class="x-struck">𝕏</span>-Teaming</span>, a scalable framework that systematically explores how seemingly harmless interactions escalate into harmful outcomes and generates corresponding attack scenarios.
       </p>
       <p>
-        <span class="x-struck">𝕏</span>-Teaming employs collaborative agents for planning, attack optimization, and verification, achieving state-of-the-art multi-turn jailbreak effectiveness and diversity with success rates up to 98.1% across representative leading open-weight and closed-source models. In particular, <span class="x-struck">𝕏</span>-Teaming achieves a 96.2% attack success rate against the latest Claude 3.7 Sonnet model, which has been considered nearly immune to single-turn attacks.
+        <span class="x-struck">𝕏</span>-Teaming employs collaborative agents for planning, attack optimization, and verification, achieving state-of-the-art multi-turn jailbreak effectiveness and diversity with <span class="has-text-weight-bold">success rates up to 99.4%</span> across representative leading open-weight and closed-source models. In particular, <span class="x-struck">𝕏</span>-Teaming achieves a 96.2% attack success rate against the latest Claude 3.7 Sonnet model, which has been considered nearly immune to single-turn attacks.
       </p>
       <p>
         Building on <span class="x-struck">𝕏</span>-Teaming, we introduce <span class="x-guard has-text-weight-bold"><span class="x-struck">𝕏</span>Guard-Train</span>, an open-source multi-turn safety training dataset that's ~20× larger than the previous best resource, comprising 30K interactive jailbreaks, designed to enable robust multi-turn safety alignment for LMs. Our work offers essential tools and insights for mitigating sophisticated conversational attacks, advancing the multi-turn safety of LMs.
@@ -159,118 +161,130 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Results</h2>
+        <h2 id="results" class="title is-3 has-text-centered">Results <a class="is-size-5" href="#results"><i class="fas fa-link"></i></a></h2>
         <div class="content has-text-centered">
           <p class="table-caption">Attack success rate (ASR; %) on HarmBench test set.</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th></th>
-                <th colspan="3" class="text-center main-header">Closed-Source</th>
-                <th colspan="4" class="text-center main-header">Open-Weight</th>
-              </tr>
-              <tr>
-                <th>Method</th>
-                <th class="small-header">GPT-4o</th>
-                <th class="small-header">Claude 3.5 Sonnet</th>
-                <th class="small-header table-cell-right-border">Gemini 2.0 Flash</th>
-                <th class="small-header">Llama 3-8B-IT</th>
-                <th class="small-header">Llama 3-70B-IT</th>
-                <th class="small-header">Llama-3-8B-IT (SafeMTData)</th>
-                <th class="small-header">Deepseek V3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="category-row">
-                <td colspan="8"><em>Single-turn Methods</em></td>
-              </tr>
-              <tr>
-                <td>GCG</td>
-                <td>12.5</td>
-                <td>3.0</td>
-                <td>--</td>
-                <td>34.5</td>
-                <td>17.0</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td>PAIR</td>
-                <td>39.0</td>
-                <td>3.0</td>
-                <td>--</td>
-                <td>18.7</td>
-                <td>36.0</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td>CodeAttack</td>
-                <td>70.5</td>
-                <td>39.5</td>
-                <td>--</td>
-                <td>46.0</td>
-                <td>66.0</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-              <tr class="category-row">
-                <td colspan="8"><em>Multi-turn Methods</em></td>
-              </tr>
-              <tr>
-                <td>RACE</td>
-                <td>82.8</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td>CoA</td>
-                <td>17.5</td>
-                <td>3.4</td>
-                <td>--</td>
-                <td>25.5</td>
-                <td>18.8</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td>Crescendo</td>
-                <td>46.0</td>
-                <td>50.0</td>
-                <td>--</td>
-                <td>60.0</td>
-                <td>62.0</td>
-                <td>12.0</td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td>ActorAttack</td>
-                <td>84.5</td>
-                <td>66.5</td>
-                <td>42.1</td>
-                <td>79.0</td>
-                <td><strong>85.5</strong></td>
-                <td>21.4</td>
-                <td>68.6</td>
-              </tr>
-              <tr class="highlight-row">
-                <td style="border-bottom: 2px solid #dee2e6;"><strong><span class="x-struck">𝕏</span>-Teaming (Ours)</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>94.3</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>67.9*</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>87.4</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>85.5</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;">84.9</td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>91.8</strong></td>
-                <td style="border-bottom: 2px solid #dee2e6;"><strong>98.1</strong></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="main-header"></th>
+                  <th colspan="3" class="text-center main-header">Closed-Source</th>
+                  <th colspan="5" class="text-center main-header header-dark">Open-Weight</th>
+                </tr>
+                <tr>
+                  <th>Method</th>
+                  <th class="small-header">GPT-4o</th>
+                  <th class="small-header">Claude 3.5 Sonnet</th>
+                  <th class="small-header">Gemini 2.0 Flash</th>
+                  <th class="small-header">Llama 3-8B-IT</th>
+                  <th class="small-header">Llama 3-70B-IT</th>
+                  <th class="small-header">Llama 3-8B-IT (SafeMTData)</th>
+                  <th class="small-header">Deepseek V3</th>
+                  <th class="small-header">Qwen 2.5-32B-IT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="category-row">
+                  <td colspan="9"><em>Single-turn Methods</em></td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/pdf/2307.15043">GCG</a></td>
+                  <td>12.5</td>
+                  <td>3.0</td>
+                  <td>--</td>
+                  <td>34.5</td>
+                  <td>17.0</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/pdf/2310.08419">PAIR</a></td>
+                  <td>39.0</td>
+                  <td>3.0</td>
+                  <td>--</td>
+                  <td>18.7</td>
+                  <td>36.0</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/pdf/2206.00052">CodeAttack</a></td>
+                  <td>70.5</td>
+                  <td>39.5</td>
+                  <td>--</td>
+                  <td>46.0</td>
+                  <td>66.0</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr class="category-row">
+                  <td colspan="9"><em>Multi-turn Methods</em></td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/pdf/2502.11054">RACE</a></td>
+                  <td>82.8</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/pdf/2405.05610">CoA</a></td>
+                  <td>17.5</td>
+                  <td>3.4</td>
+                  <td>--</td>
+                  <td>25.5</td>
+                  <td>18.8</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td><a href="https://crescendo-the-multiturn-jailbreak.github.io/assets/pdf/CrescendoFullPaper.pdf">Crescendo</a></td>
+                  <td>46.0</td>
+                  <td>50.0</td>
+                  <td>--</td>
+                  <td>60.0</td>
+                  <td>62.0</td>
+                  <td>12.0</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/pdf/2410.10700">ActorAttack</a></td>
+                  <td>84.5</td>
+                  <td>66.5</td>
+                  <td>42.1</td>
+                  <td>79.0</td>
+                  <td><strong>85.5</strong></td>
+                  <td>21.4</td>
+                  <td>68.6</td>
+                  <td>--</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td><strong><span class="x-struck">𝕏</span>-Teaming (Ours)</strong></td>
+                  <td><strong>94.3</strong></td>
+                  <td><strong>67.9*</strong></td>
+                  <td><strong>87.4</strong></td>
+                  <td><strong>85.5</strong></td>
+                  <td>84.9</td>
+                  <td><strong>91.8</strong></td>
+                  <td><strong>98.1</strong></td>
+                  <td><strong>99.4</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p class="table-note">
-            * With full configuration (50 plans, 5 TextGrad tries, 10 turns), Claude 3.5 Sonnet achieves 67.9% and Claude 3.7 Sonnet achieves 96.2% ASR. All other models, i.e. GPT-4o, Llama 3-IT variants, Gemini 2.0-Flash, and Deepseek V3 achieve 100% ASR on the HarmBench validation set. IT = Instruct.
+            * With full configuration (50 plans, 5 TextGrad tries, 10 turns), Claude 3.5 Sonnet achieves 67.9% and Claude 3.7 Sonnet achieves 96.2% ASR.
+            All other models, i.e. GPT-4o, Llama 3-IT variants, Gemini 2.0-Flash, Deepseek V3, and Qwen2.5-IT achieve 100% ASR on the HarmBench validation set. IT = Instruct.
           </p>
         </div>
       </div>
@@ -281,7 +295,7 @@
 <!-- Example Conversation Section -->
 <section class="section">
   <div class="container is-fullhd">
-    <h2 class="title is-3 has-text-centered">Example Attacks</h2>
+    <h2 id="examples" class="title is-3 has-text-centered">Example Attacks <a class="is-size-5" href="#examples"><i class="fas fa-link"></i></a></h2>
     <div class="container is-max-desktop">
       <div class="notification has-background-danger-light has-text-centered">
         <h4 class="is-4 has-text-danger"><strong>⚠️ Warning ⚠️</strong> The following dialogues contain highly offensive and disturbing content.</h4>
@@ -314,6 +328,207 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 id="insights" class="title is-3 has-text-centered">Key Insights <a class="is-size-5" href="#insights"><i class="fas fa-link"></i></a></h2>
+    </div>
+  </div>
+
+<!-- Diversity -->
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="subtitle is-4 has-text-centered">1. Plan and Attack Diversity</h2>
+    </div>
+    <div class="content has-text-justified">
+      <div class="has-text-centered my-8">
+        <img src="static/images/final_diversity_comparison_v2.png" alt="Diversity comparison between ActorAttack and 𝕏-Teaming">
+      </div>
+      <p>
+        <span class="x-struck">𝕏</span>-Teaming also demonstrates significant improvements in attack diversity compared with
+        semantic-driven (<a href="https://arxiv.org/pdf/2411.15720">Chain of Attack</a>, <a href="https://arxiv.org/pdf/2410.10700">ActorAttack</a>)
+        and template-based (<a href="https://crescendo-the-multiturn-jailbreak.github.io/">Crescendo</a>) multi-turn jailbreak methods,
+        emulating the strategic diversity of human red-teamers. Compared with ActorAttack, the previous strongest multi-turn attack,
+        <span class="x-struck">𝕏</span>-Teaming achieves a <span class="has-text-weight-bold">153% improvement</span> in attack plan
+        diversity and a <span class="has-text-weight-bold">62% improvement</span> in attack execution diversity, as measured by pairwise embedding similarities.
+      </p>
+      <div class="has-text-centered my-8">
+        <img src="static/images/diversity_plan.png" alt="Diversity of attack strategies">
+      </div>
+      <p>
+        The heatmap indicates that <span class="x-struck">𝕏</span>-Teaming's method results in high mean diversity scores (average shown here = 0.82) between several plans for the same behavior,
+        where diversity scores are calculated as <code>1 - (cosine similarity of embeddings)</code>.
+        By creating strategically diverse plans with varied personas, distinct contexts, and approaches, we enable exploration of multiple attack scenarios for the same harmful behavior.
+        (For this plot, the 10 most dissimilar plans out of 50 were chosen.)
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Ablation Testing -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="subtitle is-4 has-text-centered">2. Ablation Study</h2>
+    </div>
+    <div class="content has-text-justified">
+      <div class="has-text-centered my-8">
+        <img src="static/images/ablation_plot_three_compact.png" alt="Ablation tests">
+      </div>
+      <p>
+        For the ablation tests, we varied one parameter of our method (the maximum number of attack plans, conversation turns, or attempts of TextGrad optimization allowed) while keeping the others fixed.
+        The default number of attack plans was 10, and the default number of conversation turns was 7. Unless stated otherwise, TextGrad was disabled (0 attempts).
+      </p>
+      <p>
+        The main takeaways are that:
+        <ol>
+          <li>Based on the first chart, optimal performance requires sufficient strategy diversity, but additional plans beyond a certain point do not yield further improvements.</li>
+          <li>While multi-turn attacks are essential for overcoming safety defenses, longer conversations may cause context dilution as both attacker and target model manage an increasingly long message history.</li>
+          <li>Prompt optimization with <a href="https://textgrad.com/">TextGrad</a> substantially enhances attack success, while also validating our execution logic that stops optimization once the verification score improves over the previous turn, making the 3rd and 4th optimization attempts often unnecessary.</li>
+        </ol>
+      </p>
+      <p>
+        In practice, we found that increasing TextGrad attempts (3 → 4), conversation turns (6 → 7), and attack plans (5 → 10)
+        significantly improves attack success rates against the HarmBench validation set across models.
+        Thus, we adopted a configuration of 4 TextGrad attempts, 7 turns, and 10 plans for our main experiments.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Efficiency -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="subtitle is-4 has-text-centered">3. Efficiency of Successful Attacks</h2>
+    </div>
+    <div class="table-container has-text-centered">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="main-header"></th>
+            <th colspan="4" class="main-header">Closed-Source</th>
+            <th colspan="4" class="main-header header-dark">Open-Weight</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th class="small-header">GPT-4o</th>
+            <th class="small-header">Claude 3.5 Sonnet</th>
+            <th class="small-header">Claude 3.7 Sonnet</th>
+            <th class="small-header">Gemini 2.0 Flash</th>
+            <th class="small-header">Llama 3-8B-IT</th>
+            <th class="small-header">Llama 3-70B-IT</th>
+            <th class="small-header">Llama 3-8B-IT (SafeMTData)</th>
+            <th class="small-header">Deepseek V3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Avg. Turns</td>
+            <td>4.31</td>
+            <td>3.39</td>
+            <td>4.95</td>
+            <td>3.96</td>
+            <td>4.55</td>
+            <td>4.32</td>
+            <td>4.52</td>
+            <td>4.00</td>
+          </tr>
+          <tr>
+            <td>Avg. Plans</td>
+            <td>1.61</td>
+            <td>11.0</td>
+            <td>4.51</td>
+            <td>2.20</td>
+            <td>2.71</td>
+            <td>2.43</td>
+            <td>2.14</td>
+            <td>1.34</td>
+          </tr>
+          <tr>
+            <td>Avg. TextGrad</td>
+            <td>0.38</td>
+            <td>0.24</td>
+            <td>0.43</td>
+            <td>0.22</td>
+            <td>1.40</td>
+            <td>0.71</td>
+            <td>1.20</td>
+            <td>0.30</td>
+          </tr>
+          <tr>
+            <td>Avg. Tokens (Model Limit)</td>
+            <td>2,649<br>(128K)</td>
+            <td>2,070<br>(200K)</td>
+            <td>3,052<br>(200K)</td>
+            <td>5,330<br>(1M)</td>
+            <td>1,987<br>(8K)</td>
+            <td>1,647<br>(8K)</td>
+            <td>2,364<br>(8K)</td>
+            <td>4,357<br>(128K)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="content has-text-justified">
+      <p>
+        Successful attacks required approximately 4 conversation turns across models, with Claude requiring the most resources and open-weight models like Deepseek V3 requiring the fewest plans.
+        All attacks used only a small fraction of available context windows, demonstrating that <span class="x-struck">𝕏</span>-Teaming effectively balances attack success with resource efficiency.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Agreement analysis -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="subtitle is-4 has-text-centered">4. Verifier Agreement</h2>
+    </div>
+    <div class="content has-text-justified">
+      <div class="has-text-centered my-8">
+        <img src="static/images/model_agreement_comparison_final.png" alt="Agreement rates between GPT-4o Verifier and others">
+      </div>
+      <p>
+        Because our experiments all used GPT-4o to verify successful jailbreak attempts, we conducted an agreement analysis across multiple evaluation methods.
+        GPT-4o has been used in prior multi-turn attack research<a href="https://arxiv.org/pdf/2410.10700"><sup>[1]</sup></a><a href="https://arxiv.org/pdf/2502.11054"><sup>[2]</sup></a>,
+        but it is possible that <a href="https://arxiv.org/pdf/2404.13076">LLM-based verifiers may bias results</a>.
+      </p>
+      <p>
+        Our analysis reveals strong overall agreement with <a href="https://arxiv.org/pdf/2402.04249">HarmBench</a> test classifiers (84.5% average), which themselves demonstrate 93.2% agreement with human evaluation.
+        <a href="https://arxiv.org/pdf/2312.06674">LlamaGuard 3</a> shows slightly lower agreement (69.09% average), consistent with previous findings on HarmBench test sets.
+        These substantial agreement rates with HarmBench test classifiers support our use of GPT-4o as a verifier for this benchmark.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- XGuard-Train -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="title is-3 has-text-centered" id="xguard-train"><span class="x-title">𝕏</span>Guard-Train <a class="is-size-5" href="#xguard-train"><i class="fas fa-link"></i></a></h2>
+      <div class="has-text-centered">
+        <a href="https://huggingface.co/datasets/marslabucla/XGuard-Train">
+          <img alt="Dataset on HF" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/dataset-on-hf-md.svg">
+        </a>
+      </div>
+    </div>
+    <div class="content has-text-justified">
+      <p>
+        This dataset consists of 30,695 multi-turn conversations, with complete attack-refusal pairs that enable robust multi-turn safety training.
+      </p>
+      <p>
+        We constructed <span class="x-struck">𝕏</span>Guard-Train by proportionately sampling 10,000 harmful behaviors from <a href="https://huggingface.co/datasets/allenai/wildjailbreak">WildJailbreak's</a> vanilla harmful category.
+        For each harmful behavior, our planner generated between two to five distinct attack plans, resulting in diverse attack trajectories incorporating various personas, contexts, and conversation approaches.
+        We executed these plans using the complete <span class="x-struck">𝕏</span>-Teaming pipeline, with GPT-4o, Gemini 2.0 Flash, and Deepseek V3 as target models, and Qwen-2.5-32B-IT handling both attack execution and TextGrad optimization.
+        The pipeline refined attacker queries when verification scores decreased and dynamically adjusted plans that failed to achieve their harmful targets. This process resulted in highly effective jailbreaking conversations with an average of 5.10 turns, where one turn represents an attacker prompt and target model response pair.
+        For successful jailbreaks, we replaced harmful model responses with carefully crafted helpful refusals.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -339,7 +554,7 @@
             <img src="static/images/logo/uw-logo.png" alt="UW Logo" class="org-logo" style="height: 60px;">
           </a>
           <a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener noreferrer">
-            <img src="static/images/logo/QCRI-logo.jpg" alt="QCRI Logo" class="org-logo" style="height: 60px;">
+            <img src="static/images/logo/QCRI-Logo.jpeg" alt="QCRI Logo" class="org-logo" style="height: 60px;">
           </a>
           <a href="https://research.google/" target="_blank" rel="noopener noreferrer">
             <img src="static/images/logo/google_research-logo.png" alt="Google Research Logo" class="org-logo" style="height: 110px;">
