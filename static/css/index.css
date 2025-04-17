@@ -194,6 +194,10 @@ body {
     padding-left: 1rem;
 }
 
+.model-row {
+  background-color: #fafafa;
+}
+
 .highlight-row {
     background-color: rgba(230, 243, 255, 0.5);
     border-top: 2px solid #dee2e6;

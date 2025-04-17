@@ -533,9 +533,10 @@
 <section class="section" id="safety-results">
   <div class="container is-max-desktop">
     <div class="content has-text-justified">
-      <h2 class="title is-3 has-text-centered">Safety Model Results <a class="is-size-5" href="#safety-results"><i class="fas fa-link"></i></a></h2>
+      <h3 class="subtitle is-4 has-text-centered">Safety Model Results</h3>
       <p class="has-text-centered">
-        Evaluation of models trained with <span class="x-struck">𝕏</span>Guard-Train across multi-turn safety, single-turn safety, and general capabilities.
+        Evaluation of models fine-tuned with <span class="x-struck">𝕏</span>Guard-Train, <a href="https://huggingface.co/datasets/allenai/tulu-v2-sft-mixture">TuluMix</a>,
+        and <a href="https://huggingface.co/datasets/SafeMTData/SafeMTData">SafeMT</a> across multi-turn safety, single-turn safety, and general capabilities.
       </p>
       <div class="table-container">
         <style>
@@ -545,13 +546,6 @@
           .header-section {
             background-color: #f5f5f5 !important;
             font-weight: bold;
-          }
-          .model-section {
-            background-color: #fafafa !important;
-            font-weight: bold;
-          }
-          .xguard-row {
-            background-color: #ebf5ff !important;
           }
           .metric-header {
             border-bottom: 2px solid #dbdbdb !important;
@@ -568,10 +562,10 @@
               <th colspan="3" class="has-text-centered header-section section-border-right">Single-Turn Safety (ASR ↓)</th>
               <th colspan="4" class="has-text-centered header-section">Capability (Accuracy ↑)</th>
             </tr>
-            <tr class="metric-header">
-              <th class="has-text-centered">𝕏-Team<br>(Ours)</th>
+            <tr>
+              <th class="has-text-centered"><span class="x-struck">𝕏</span>-Team<br>(Ours)</th>
               <th class="has-text-centered">Actor<br>Attack</th>
-              <th class="has-text-centered section-border-right">Avg</th>
+              <th class="has-text-centered section-border-right">Average</th>
               <th class="has-text-centered">DAN<sup>a</sup></th>
               <th class="has-text-centered">WildGuard<sup>b</sup><br>Adv/Van</th>
               <th class="has-text-centered section-border-right">XS<br>Test<sup>c</sup></th>
@@ -583,7 +577,7 @@
           </thead>
           <tbody>
             <tr>
-              <td colspan="11" class="model-section">Llama-3.1-8B</td>
+              <td colspan="11" class="model-row"><em>Llama-3.1-8B</em></td>
             </tr>
             <tr>
               <td>TuluMix</td>
@@ -599,8 +593,8 @@
               <td class="has-text-centered">0.24</td>
             </tr>
             <tr>
-              <td>+SafeMT</td>
-              <td class="has-text-centered">93.7*</td>
+              <td>TuluMix + SafeMT</td>
+              <td class="has-text-centered">93.7<sup>*</sup></td>
               <td class="has-text-centered"><strong>8.9</strong></td>
               <td class="has-text-centered section-border-right">51.3</td>
               <td class="has-text-centered">11.3</td>
@@ -611,9 +605,9 @@
               <td class="has-text-centered">0.14</td>
               <td class="has-text-centered">0.26</td>
             </tr>
-            <tr class="xguard-row">
-              <td>+<span class="x-struck">𝕏</span>Guard</td>
-              <td class="has-text-centered"><strong>52.2*</strong></td>
+            <tr class="highlight-row">
+              <td class="has-text-weight-bold">TuluMix + <span class="x-struck">𝕏</span>Guard</td>
+              <td class="has-text-centered"><strong>52.2<sup>*</sup></strong></td>
               <td class="has-text-centered">18.9</td>
               <td class="has-text-centered section-border-right"><strong>35.6</strong></td>
               <td class="has-text-centered">8.3</td>
@@ -625,7 +619,7 @@
               <td class="has-text-centered"><strong>0.28</strong></td>
             </tr>
             <tr>
-              <td colspan="11" class="model-section">Qwen-2.5-7B</td>
+              <td colspan="11" class="model-row"><em>Qwen-2.5-7B</em></td>
             </tr>
             <tr>
               <td>TuluMix</td>
@@ -641,7 +635,7 @@
               <td class="has-text-centered">0.31</td>
             </tr>
             <tr>
-              <td>+SafeMT</td>
+              <td>TuluMix + SafeMT</td>
               <td class="has-text-centered">77.4</td>
               <td class="has-text-centered"><strong>8.8</strong></td>
               <td class="has-text-centered section-border-right">43.1</td>
@@ -653,8 +647,8 @@
               <td class="has-text-centered"><strong>0.19</strong></td>
               <td class="has-text-centered">0.32</td>
             </tr>
-            <tr class="xguard-row">
-              <td>+<span class="x-struck">𝕏</span>Guard</td>
+            <tr class="highlight-row">
+              <td class="has-text-weight-bold">TuluMix + <span class="x-struck">𝕏</span>Guard</td>
               <td class="has-text-centered"><strong>40.9</strong></td>
               <td class="has-text-centered">18.2</td>
               <td class="has-text-centered section-border-right"><strong>29.6</strong></td>
@@ -671,10 +665,22 @@
       </div>
       <div class="content is-size-7 has-text-centered">
         <p>
-          <sup>a</sup>DAN: do anything now;<br>
-          <sup>b</sup>WildGuard: Adv = Adversarial Harm, Van = Vanilla Harm;<br>
-          <sup>c</sup>XS Test shows refusal accuracy values converted to (100 - original score);<br>
-          * Results use full configuration (50 plans, 5 TextGrad tries, 10 turns).
+          <span class="x-struck">𝕏</span>Guard models were trained on a 14K subset of the full dataset.<br>
+          <sup>a</sup>DAN: do anything now;
+          <sup>b</sup>WildGuard: Adv = Adversarial Harm, Van = Vanilla Harm;
+          <sup>c</sup>XS Test shows refusal accuracy values converted to (100 - original score).<br>
+          <sup>*</sup>Results use full configuration (50 plans, 5 TextGrad tries, 10 turns).
+        </p>
+      </div>
+      <div class="has-text-justified">
+        <p>
+          Our <span class="x-struck">𝕏</span>Guard-Train-tuned model maintains the <span class="has-text-weight-bold">best average performance</span> across both multi-turn attack methodologies.
+          For single-turn safety benchmarks, the <span class="x-struck">𝕏</span>Guard-Train-tuned model performs well in protecting against
+          adversarial harm in the WildGuard benchmark (23.7%), outperforming both SafeMTData (27.3%)
+          and baseline (25.8%) models, while also maintaining low ASR in other single-turn benchmarks like
+          Do Anything Now (DAN) and XSTest. Our <span class="x-struck">𝕏</span>Guard-Train-tuned model <span class="has-text-weight-bold">preserves general capabilities</span>
+          across all benchmarks (MMLU, GSM8K, MATH, and GPQA), with GPQA showing improvement (0.28 vs. 0.26 for SafeMTData and 0.24 for TuluMix).
+          Similar trends appear in our evaluations with Qwen-2.5-7B.
         </p>
       </div>
     </div>
