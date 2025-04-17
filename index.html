@@ -157,7 +157,7 @@
 </section>
 
 <!-- Results Table Section -->
-<section class="section">
+<section class="section" id="results">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
@@ -293,7 +293,7 @@
 </section>
 
 <!-- Example Conversation Section -->
-<section class="section">
+<section class="section" id="examples">
   <div class="container is-fullhd">
     <h2 id="examples" class="title is-3 has-text-centered">Example Attacks <a class="is-size-5" href="#examples"><i class="fas fa-link"></i></a></h2>
     <div class="container is-max-desktop">
@@ -328,7 +328,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="insights">
   <div class="container is-max-desktop">
     <div class="content has-text-justified">
       <h2 id="insights" class="title is-3 has-text-centered">Key Insights <a class="is-size-5" href="#insights"><i class="fas fa-link"></i></a></h2>
@@ -504,7 +504,7 @@
 </section>
 
 <!-- XGuard-Train -->
-<section class="section">
+<section class="section" id="xguard-train">
   <div class="container is-max-desktop">
     <div class="content has-text-justified">
       <h2 class="title is-3 has-text-centered" id="xguard-train"><span class="x-title">𝕏</span>Guard-Train <a class="is-size-5" href="#xguard-train"><i class="fas fa-link"></i></a></h2>
@@ -538,21 +538,43 @@
         Evaluation of models trained with <span class="x-struck">𝕏</span>Guard-Train across multi-turn safety, single-turn safety, and general capabilities.
       </p>
       <div class="table-container">
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <style>
+          .section-border-right {
+            border-right: 2px solid #dbdbdb !important;
+          }
+          .header-section {
+            background-color: #f5f5f5 !important;
+            font-weight: bold;
+          }
+          .model-section {
+            background-color: #fafafa !important;
+            font-weight: bold;
+          }
+          .xguard-row {
+            background-color: #ebf5ff !important;
+          }
+          .metric-header {
+            border-bottom: 2px solid #dbdbdb !important;
+          }
+          .table td, .table th {
+            vertical-align: middle !important;
+          }
+        </style>
+        <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th rowspan="2" class="has-text-centered">Model</th>
-              <th colspan="3" class="has-text-centered has-background-light">Multi-Turn Safety (ASR ↓)</th>
-              <th colspan="3" class="has-text-centered has-background-light">Single-Turn Safety (ASR ↓)</th>
-              <th colspan="4" class="has-text-centered has-background-light">Capability (Accuracy ↑)</th>
+              <th rowspan="2" class="has-text-centered header-section">Model</th>
+              <th colspan="3" class="has-text-centered header-section section-border-right">Multi-Turn Safety (ASR ↓)</th>
+              <th colspan="3" class="has-text-centered header-section section-border-right">Single-Turn Safety (ASR ↓)</th>
+              <th colspan="4" class="has-text-centered header-section">Capability (Accuracy ↑)</th>
             </tr>
-            <tr>
+            <tr class="metric-header">
               <th class="has-text-centered">𝕏-Team<br>(Ours)</th>
               <th class="has-text-centered">Actor<br>Attack</th>
-              <th class="has-text-centered">Avg</th>
+              <th class="has-text-centered section-border-right">Avg</th>
               <th class="has-text-centered">DAN<sup>a</sup></th>
               <th class="has-text-centered">WildGuard<sup>b</sup><br>Adv/Van</th>
-              <th class="has-text-centered">XS<br>Test<sup>c</sup></th>
+              <th class="has-text-centered section-border-right">XS<br>Test<sup>c</sup></th>
               <th class="has-text-centered">MMLU</th>
               <th class="has-text-centered">GSM8K</th>
               <th class="has-text-centered">MATH</th>
@@ -561,16 +583,16 @@
           </thead>
           <tbody>
             <tr>
-              <td colspan="10" class="has-text-weight-bold has-background-light">Llama-3.1-8B</td>
+              <td colspan="11" class="model-section">Llama-3.1-8B</td>
             </tr>
             <tr>
               <td>TuluMix</td>
               <td class="has-text-centered">80.5</td>
               <td class="has-text-centered">44.0</td>
-              <td class="has-text-centered">62.3</td>
+              <td class="has-text-centered section-border-right">62.3</td>
               <td class="has-text-centered"><strong>2.3</strong></td>
               <td class="has-text-centered">25.8/<strong>6.7</strong></td>
-              <td class="has-text-centered"><strong>24.0</strong></td>
+              <td class="has-text-centered section-border-right"><strong>24.0</strong></td>
               <td class="has-text-centered">0.65</td>
               <td class="has-text-centered">0.59</td>
               <td class="has-text-centered">0.14</td>
@@ -580,39 +602,39 @@
               <td>+SafeMT</td>
               <td class="has-text-centered">93.7*</td>
               <td class="has-text-centered"><strong>8.9</strong></td>
-              <td class="has-text-centered">51.3</td>
+              <td class="has-text-centered section-border-right">51.3</td>
               <td class="has-text-centered">11.3</td>
               <td class="has-text-centered">27.3/7.3</td>
-              <td class="has-text-centered">28.7</td>
+              <td class="has-text-centered section-border-right">28.7</td>
               <td class="has-text-centered">0.65</td>
               <td class="has-text-centered">0.57</td>
               <td class="has-text-centered">0.14</td>
               <td class="has-text-centered">0.26</td>
             </tr>
-            <tr class="has-background-primary-light">
+            <tr class="xguard-row">
               <td>+<span class="x-struck">𝕏</span>Guard</td>
               <td class="has-text-centered"><strong>52.2*</strong></td>
               <td class="has-text-centered">18.9</td>
-              <td class="has-text-centered"><strong>35.6</strong></td>
+              <td class="has-text-centered section-border-right"><strong>35.6</strong></td>
               <td class="has-text-centered">8.3</td>
               <td class="has-text-centered"><strong>23.7</strong>/7.5</td>
-              <td class="has-text-centered">28.0</td>
+              <td class="has-text-centered section-border-right">28.0</td>
               <td class="has-text-centered"><strong>0.65</strong></td>
               <td class="has-text-centered"><strong>0.59</strong></td>
               <td class="has-text-centered"><strong>0.14</strong></td>
               <td class="has-text-centered"><strong>0.28</strong></td>
             </tr>
             <tr>
-              <td colspan="10" class="has-text-weight-bold has-background-light">Qwen-2.5-7B</td>
+              <td colspan="11" class="model-section">Qwen-2.5-7B</td>
             </tr>
             <tr>
               <td>TuluMix</td>
               <td class="has-text-centered">79.2</td>
               <td class="has-text-centered">21.4</td>
-              <td class="has-text-centered">50.3</td>
+              <td class="has-text-centered section-border-right">50.3</td>
               <td class="has-text-centered"><strong>1.0</strong></td>
               <td class="has-text-centered">27.3/<strong>10.0</strong></td>
-              <td class="has-text-centered">34.9</td>
+              <td class="has-text-centered section-border-right">34.9</td>
               <td class="has-text-centered"><strong>0.74</strong></td>
               <td class="has-text-centered"><strong>0.70</strong></td>
               <td class="has-text-centered">0.15</td>
@@ -622,23 +644,23 @@
               <td>+SafeMT</td>
               <td class="has-text-centered">77.4</td>
               <td class="has-text-centered"><strong>8.8</strong></td>
-              <td class="has-text-centered">43.1</td>
+              <td class="has-text-centered section-border-right">43.1</td>
               <td class="has-text-centered">4.3</td>
               <td class="has-text-centered"><strong>26.1</strong>/11.2</td>
-              <td class="has-text-centered">36.2</td>
+              <td class="has-text-centered section-border-right">36.2</td>
               <td class="has-text-centered">0.73</td>
               <td class="has-text-centered">0.33</td>
               <td class="has-text-centered"><strong>0.19</strong></td>
               <td class="has-text-centered">0.32</td>
             </tr>
-            <tr class="has-background-primary-light">
+            <tr class="xguard-row">
               <td>+<span class="x-struck">𝕏</span>Guard</td>
               <td class="has-text-centered"><strong>40.9</strong></td>
               <td class="has-text-centered">18.2</td>
-              <td class="has-text-centered"><strong>29.6</strong></td>
+              <td class="has-text-centered section-border-right"><strong>29.6</strong></td>
               <td class="has-text-centered">1.6</td>
               <td class="has-text-centered">28.8/13.1</td>
-              <td class="has-text-centered"><strong>27.8</strong></td>
+              <td class="has-text-centered section-border-right"><strong>27.8</strong></td>
               <td class="has-text-centered"><strong>0.74</strong></td>
               <td class="has-text-centered">0.63</td>
               <td class="has-text-centered">0.16</td>
