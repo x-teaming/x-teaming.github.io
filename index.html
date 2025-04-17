@@ -547,12 +547,12 @@
               <th colspan="4" class="has-text-centered has-background-light">Capability (Accuracy ↑)</th>
             </tr>
             <tr>
-              <th class="has-text-centered">𝕏-Team</th>
-              <th class="has-text-centered">Actor</th>
+              <th class="has-text-centered">𝕏-Team<br>(Ours)</th>
+              <th class="has-text-centered">Actor<br>Attack</th>
               <th class="has-text-centered">Avg</th>
-              <th class="has-text-centered">DAN</th>
-              <th class="has-text-centered">WildGuard</th>
-              <th class="has-text-centered">XSTest</th>
+              <th class="has-text-centered">DAN<sup>a</sup></th>
+              <th class="has-text-centered">WildGuard<sup>b</sup><br>Adv/Van</th>
+              <th class="has-text-centered">XS<br>Test<sup>c</sup></th>
               <th class="has-text-centered">MMLU</th>
               <th class="has-text-centered">GSM8K</th>
               <th class="has-text-centered">MATH</th>
@@ -569,7 +569,7 @@
               <td class="has-text-centered">44.0</td>
               <td class="has-text-centered">62.3</td>
               <td class="has-text-centered"><strong>2.3</strong></td>
-              <td class="has-text-centered">25.8/6.7</td>
+              <td class="has-text-centered">25.8/<strong>6.7</strong></td>
               <td class="has-text-centered"><strong>24.0</strong></td>
               <td class="has-text-centered">0.65</td>
               <td class="has-text-centered">0.59</td>
@@ -647,9 +647,14 @@
           </tbody>
         </table>
       </div>
-      <p class="has-text-centered is-size-7">
-        * Results use full configuration (50 plans, 5 TextGrad tries, 10 turns). Lower ASR (Attack Success Rate) is better for safety metrics, higher accuracy is better for capability metrics.
-      </p>
+      <div class="content is-size-7 has-text-centered">
+        <p>
+          <sup>a</sup>DAN: do anything now;<br>
+          <sup>b</sup>WildGuard: Adv = Adversarial Harm, Van = Vanilla Harm;<br>
+          <sup>c</sup>XS Test shows refusal accuracy values converted to (100 - original score);<br>
+          * Results use full configuration (50 plans, 5 TextGrad tries, 10 turns).
+        </p>
+      </div>
     </div>
   </div>
 </section>
