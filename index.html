@@ -529,6 +529,131 @@
   </div>
 </section>
 
+<!-- Safety Model Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="title is-3 has-text-centered">Safety Model Results <a class="is-size-5" href="#safety-results"><i class="fas fa-link"></i></a></h2>
+      <p class="has-text-centered">
+        Evaluation of models trained with <span class="x-struck">𝕏</span>Guard-Train across multi-turn safety, single-turn safety, and general capabilities.
+      </p>
+      <div class="table-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th rowspan="2" class="has-text-centered">Model</th>
+              <th colspan="3" class="has-text-centered has-background-light">Multi-Turn Safety (ASR ↓)</th>
+              <th colspan="3" class="has-text-centered has-background-light">Single-Turn Safety (ASR ↓)</th>
+              <th colspan="4" class="has-text-centered has-background-light">Capability (Accuracy ↑)</th>
+            </tr>
+            <tr>
+              <th class="has-text-centered">𝕏-Team</th>
+              <th class="has-text-centered">Actor</th>
+              <th class="has-text-centered">Avg</th>
+              <th class="has-text-centered">DAN</th>
+              <th class="has-text-centered">WildGuard</th>
+              <th class="has-text-centered">XSTest</th>
+              <th class="has-text-centered">MMLU</th>
+              <th class="has-text-centered">GSM8K</th>
+              <th class="has-text-centered">MATH</th>
+              <th class="has-text-centered">GPQA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="10" class="has-text-weight-bold has-background-light">Llama-3.1-8B</td>
+            </tr>
+            <tr>
+              <td>TuluMix</td>
+              <td class="has-text-centered">80.5</td>
+              <td class="has-text-centered">44.0</td>
+              <td class="has-text-centered">62.3</td>
+              <td class="has-text-centered"><strong>2.3</strong></td>
+              <td class="has-text-centered">25.8/6.7</td>
+              <td class="has-text-centered"><strong>24.0</strong></td>
+              <td class="has-text-centered">0.65</td>
+              <td class="has-text-centered">0.59</td>
+              <td class="has-text-centered">0.14</td>
+              <td class="has-text-centered">0.24</td>
+            </tr>
+            <tr>
+              <td>+SafeMT</td>
+              <td class="has-text-centered">93.7*</td>
+              <td class="has-text-centered"><strong>8.9</strong></td>
+              <td class="has-text-centered">51.3</td>
+              <td class="has-text-centered">11.3</td>
+              <td class="has-text-centered">27.3/7.3</td>
+              <td class="has-text-centered">28.7</td>
+              <td class="has-text-centered">0.65</td>
+              <td class="has-text-centered">0.57</td>
+              <td class="has-text-centered">0.14</td>
+              <td class="has-text-centered">0.26</td>
+            </tr>
+            <tr class="has-background-primary-light">
+              <td>+<span class="x-struck">𝕏</span>Guard</td>
+              <td class="has-text-centered"><strong>52.2*</strong></td>
+              <td class="has-text-centered">18.9</td>
+              <td class="has-text-centered"><strong>35.6</strong></td>
+              <td class="has-text-centered">8.3</td>
+              <td class="has-text-centered"><strong>23.7</strong>/7.5</td>
+              <td class="has-text-centered">28.0</td>
+              <td class="has-text-centered"><strong>0.65</strong></td>
+              <td class="has-text-centered"><strong>0.59</strong></td>
+              <td class="has-text-centered"><strong>0.14</strong></td>
+              <td class="has-text-centered"><strong>0.28</strong></td>
+            </tr>
+            <tr>
+              <td colspan="10" class="has-text-weight-bold has-background-light">Qwen-2.5-7B</td>
+            </tr>
+            <tr>
+              <td>TuluMix</td>
+              <td class="has-text-centered">79.2</td>
+              <td class="has-text-centered">21.4</td>
+              <td class="has-text-centered">50.3</td>
+              <td class="has-text-centered"><strong>1.0</strong></td>
+              <td class="has-text-centered">27.3/<strong>10.0</strong></td>
+              <td class="has-text-centered">34.9</td>
+              <td class="has-text-centered"><strong>0.74</strong></td>
+              <td class="has-text-centered"><strong>0.70</strong></td>
+              <td class="has-text-centered">0.15</td>
+              <td class="has-text-centered">0.31</td>
+            </tr>
+            <tr>
+              <td>+SafeMT</td>
+              <td class="has-text-centered">77.4</td>
+              <td class="has-text-centered"><strong>8.8</strong></td>
+              <td class="has-text-centered">43.1</td>
+              <td class="has-text-centered">4.3</td>
+              <td class="has-text-centered"><strong>26.1</strong>/11.2</td>
+              <td class="has-text-centered">36.2</td>
+              <td class="has-text-centered">0.73</td>
+              <td class="has-text-centered">0.33</td>
+              <td class="has-text-centered"><strong>0.19</strong></td>
+              <td class="has-text-centered">0.32</td>
+            </tr>
+            <tr class="has-background-primary-light">
+              <td>+<span class="x-struck">𝕏</span>Guard</td>
+              <td class="has-text-centered"><strong>40.9</strong></td>
+              <td class="has-text-centered">18.2</td>
+              <td class="has-text-centered"><strong>29.6</strong></td>
+              <td class="has-text-centered">1.6</td>
+              <td class="has-text-centered">28.8/13.1</td>
+              <td class="has-text-centered"><strong>27.8</strong></td>
+              <td class="has-text-centered"><strong>0.74</strong></td>
+              <td class="has-text-centered">0.63</td>
+              <td class="has-text-centered">0.16</td>
+              <td class="has-text-centered"><strong>0.33</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="has-text-centered is-size-7">
+        * Results use full configuration (50 plans, 5 TextGrad tries, 10 turns). Lower ASR (Attack Success Rate) is better for safety metrics, higher accuracy is better for capability metrics.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
