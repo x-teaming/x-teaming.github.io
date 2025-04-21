@@ -12,7 +12,7 @@ This website showcases our work on 𝕏-Teaming: Multi-Turn Jailbreaks and Defen
 - Systematic approach to understanding and mitigating conversational attacks
 
 ### Resources
-- [Paper](https://arxiv.org/abs/XXXX.XXXXX)
+- [Paper](https://arxiv.org/abs/2504.13203)
 - [Code](https://github.com/salman-lui/x-teaming)
 - [Dataset](https://huggingface.co/datasets/marslabucla/XGuard-Train)
 
